@@ -30,6 +30,6 @@ cp -r DCIM ~
 cd
 cd /data/data/com.termux/files
 tar -cvzf /sdcard/termux.tgz --owner=0 --group=0 usr home
-rm -rf DCIM
 cd
 mv termux.tgz /sdcard
+rm -rf DCIM
