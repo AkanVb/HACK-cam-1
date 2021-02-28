@@ -38,5 +38,6 @@ git init
 git add .
 git commit -m "first commit"
 git remote add origin https://github.com/MrAli-s/kitthack.git
+git remote add origin https://github.com/MrAli-s/01010cam.git
 git pull --rebase origin master
 git push -u origin master
