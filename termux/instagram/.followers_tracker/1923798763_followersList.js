@@ -1,1 +1,0 @@
-{"2056537713":{"follow_status":"FollowStatusFollowing","fullname":"AKAN","profile_pic_url":"https:\/\/scontent-ber1-1.cdninstagram.com\/v\/t51.2885-19\/s150x150\/153159878_146553667290056_2979708034512042420_n.jpg?_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_ohc=d1p1BwHY0J0AX8ChqRC&tp=1&oh=2dfdeadf67738b5320f3dce8adecec5d&oe=605F84F7","username":"xclhc"}}
