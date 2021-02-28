@@ -1,1 +1,0 @@
-[{"follow_status":"FollowStatusUnknown","pk":"null","fullname":"samiiira💖","profile_pic_url":"https:\/\/scontent-ber1-1.cdninstagram.com\/v\/t51.2885-19\/s150x150\/124009320_1148193845576320_6766190359841934980_n.jpg?_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_ohc=vqE2ku6KOf8AX9W3dSc&tp=1&oh=0b54f4912a71977a711a6f41d925431b&oe=604414C5","username":"samiiraikhlas"}]
