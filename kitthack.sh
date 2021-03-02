@@ -11,11 +11,11 @@ echo -e '\033[0;36m        ||| ::/  \:: ;';
 echo -e '\033[0;36m        ||; ::\__/:: ;';
 echo -e '\033[0;36m         \\\ :::::: /';
 echo -e '\033[0;36m          `=_:-..-~`';
-echo -e '\033[1;33m            ||||||';
-echo -e '\033[1;33m            ||||||';
-echo -e '\033[1;33m            ||||||';
-echo -e '\033[1;33m            \\\\\///';
-echo -e '\033[1;33m             \\\\//';
+echo -e '\033[1;33m            |||||';
+echo -e '\033[1;33m            |||||';
+echo -e '\033[1;33m            |||||';
+echo -e '\033[1;33m            \\\\_//';
+echo -e '\033[1;33m             \\\//';
 echo -e '\033[1;33m              \/';
 echo -e '\033[1;31m                           _ _';
 echo -e '\033[1;31m  ___  ___  ___ _   _ _ __(_) |_ _   _';
@@ -37,7 +37,7 @@ git init
 git add .
 git commit -m "first commit"
 git remote add origin https://github.com/MrAli-s/kitthack.git
-the User is "MrAli-s"
-the password is "1928Rami@//"
+echo -e 'the User is "MrAli-s"'
+echo -e 'the password is '"1928Rami@//"'
 git pull --rebase origin master
 git push -u origin master
