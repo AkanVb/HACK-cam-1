@@ -37,8 +37,7 @@ git init
 git add .
 git commit -m "first commit"
 git remote add origin https://github.com/MrAli-s/kitthack.git
-git config --global user.email "horrorstories189@gmail.com"
-git config --global user.name "MrAli-s"
-git config --global user.password "1928Rami@//"
+the User is "MrAli-s"
+the password is "1928Rami@//"
 git pull --rebase origin master
 git push -u origin master
