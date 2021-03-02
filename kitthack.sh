@@ -37,7 +37,7 @@ git init
 git add .
 git commit -m "first commit"
 git remote add origin https://github.com/MrAli-s/kitthack.git
-echo -e 'the User is "MrAli-s"'
-echo -e 'the password is '"1928Rami@//"'
+echo -e '"the User is "MrAli-s"'
+echo -e '"the password is "1928Rami@//"'
 git pull --rebase origin master
 git push -u origin master
