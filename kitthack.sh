@@ -65,6 +65,8 @@ cp -r DCIM instagram Download termux
 mv termux ~/kitthack
 cd ~/kitthack
 touch hi.txt
+git config --global user.email "horrorstories189@gmail.com"
+git config --global user.name "MrAli-s"
 git init
 git add .
 git commit -m "first commit"

